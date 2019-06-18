@@ -1,6 +1,6 @@
 # Defining custom metrics in a Spring Boot application using Micrometer
 
-Last month my friend and colleague, Attila wrote a [great post](https://blog.autsoft.hu/monitoring-microservices/) on the monitoring of Spring microservices using Micrometer, Prometheus, Grafana and Kubernetes.
+A few months ago my friend and colleague, Attila wrote a [great post](https://blog.autsoft.hu/monitoring-microservices/) on the monitoring of Spring microservices using Micrometer, Prometheus, Grafana and Kubernetes.
 Now, it is time to have a closer look at Micrometer and its' integration into Spring Boot and the way one should export custom metrics using these technologies.
 
 Spring Boot 2.0 brought a ton of new features into our favorite Java framework.
@@ -172,13 +172,13 @@ Next up, let's take a look at Gauges.
 A Gauge also represents a single numerical value but there are a few significant differences.
 First, a Counter stores a monotonically increasing value while a Gauge's value can be decremented as well.
 Second, a Gauge's value only changes when observed, we don't increment it manually, like we did in our previous example.
-Instead, we provide function to get the current value of the Gauge if needed.
+Instead, we provide a function to get the current value of the Gauge if needed.
 This behavior also implies that any events happening between two observations are lost.  
 
 Usually, it is recommended to use Gauges for values that have upper limits and it is not recommended to use Gauges for metrics that are representable by Counters. 
 
 In our example, we will monitor the size of the `order` list using a Gauge.
-(Even though our current "business logic" doesn't implement an upper for this list, let's assume that we have a maximum number of orders we can handle, any more than that will be dropped.)
+(Even though our current "business logic" doesn't implement an upper limit for this list, let's assume that we have a maximum number of orders we can handle, any more than that will be dropped.)
 
 Extend your `BeerService`'s constructor as follows:
 ```java
@@ -252,7 +252,7 @@ I recommend you to check out the [Concepts page of the Micrometer documentation]
 In this post, we haven't covered the visualization of the metrics defined.
 For these purposes we use [Prometheus](https://prometheus.io/) with [Grafana](https://grafana.com/) as they fit our use cases perfectly.  
 
-The source code for this guide can be found here: TODO.
+The source code for this guide can be found on our [GitHub page](https://github.com/AutSoft/micrometer-demo).
 
 If you liked this post or have any questions, please don't hesitate to leave a comment below.
 
