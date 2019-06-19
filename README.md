@@ -21,7 +21,7 @@ Here, at AutSoft we use Prometheus which polls the applications for new data, as
 Micrometer can bridge all of these differences for you so you can use a unified interface for all of these solutions.
 
 Next, we said that Micrometer follows a dimensional approach, which means that you can tag your metrics with an arbitrary number of tags.
-For example, if you have a metric that counts the HTTP requests in your application, you can annotate it with the URI the requests might be hitting.
+For example, if you have a metric that counts the HTTP requests in your application, you can annotate it with the URI the requests are hitting.
 Once Prometheus collects these metrics, you can see the aggregate number of requests but also, you can drill down and examine the number of requests for a specific URI.
 
 ## Micrometer and Spring
