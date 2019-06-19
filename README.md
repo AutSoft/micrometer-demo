@@ -4,20 +4,20 @@ A few months ago my friend and colleague, Attila wrote a [great post](https://bl
 Now, it is time to have a closer look at Micrometer and its' integration into Spring Boot and the way one should export custom metrics using these technologies.
 
 Spring Boot 2.0 brought a ton of new features into our favorite Java framework.
-One of these new features is the integration of Micrometer into Spring Boot Actuator.
-Micrometer is a dimensional metrics and monitoring facade to help developers integrate their application metrics to various monitoring systems.
+One of these new features, amongst many, is the integration of Micrometer into Spring Boot Actuator.
+Micrometer is a dimensional metrics and monitoring facade to help developers integrate their application metrics to various monitoring systems while keeping the appliaction indepedendent from the actual monitoring implementation.
 As the landing page of the project states, it's like SLF4J but for metrics.
 
 ## Micrometer 101
 
-Before we dive into the specifics of how to define our own metrics using Micrometer, let's spend a few moments on this definition.
+Before we dive into the specifics of defining custom metrics using Micrometer, let's spend a few moments on this definition.
 First of all, we said that Micrometer is a facade.
 What it really means is that using the library, you as a developer can use a single interface (or facade) to ship your metrics into a wide variety of monitoring systems.
 You may think that it's not that big of a deal.
 Well, it is.
 There are a ton of solutions for monitoring applications, and each of them has different approaches to satisfy your monitoring needs.
-These differences can be as simple as the naming conventions they use or even the basic approach on how they collect their data.
-Here, at AutSoft we use Prometheus which polls the applications for new data but a lot of teams use DataDog which relies on a push model.
+These differences can be as subtle as the naming conventions they use, or some might differ even on the fundamental approach on how they collect their data.
+Here, at AutSoft we use Prometheus which polls the applications for new data, as opposed to e.g. DataDog which relies on a push model.
 Micrometer can bridge all of these differences for you so you can use a unified interface for all of these solutions.
 
 Next, we said that Micrometer follows a dimensional approach, which means that you can tag your metrics with an arbitrary number of tags.
@@ -221,7 +221,7 @@ public void serveFirstOrder() throws InterruptedException {
     }
 }
 ```
-(To make the `@Scheduled` annotation work, you need to annotate the Application or any other Configuration class with `@EnableScheduling`.)
+(To make the `@Scheduled` annotations work, you need to annotate the Application or any other Configuration class with `@EnableScheduling`.)
 
 Now, if you start the application, you'll find the following metrics exported to Prometheus:
 ```
