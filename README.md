@@ -3,7 +3,7 @@
 A few months ago my friend and colleague, Attila wrote a [great post](https://blog.autsoft.hu/monitoring-microservices/) on the monitoring of Spring microservices using Micrometer, Prometheus, Grafana and Kubernetes.
 Now, it is time to have a closer look at Micrometer and its' integration into Spring Boot and the way one should export custom metrics using these technologies.
 
-Spring Boot 2.0 brought a ton of new features into our favorite Java framework.
+Spring Boot 2.0 brought loads of new features into our favorite Java framework.
 One of these new features, amongst many, is the integration of Micrometer into Spring Boot Actuator.
 Micrometer is a dimensional metrics and monitoring facade to help developers integrate their application metrics to various monitoring systems while keeping the appliaction indepedendent from the actual monitoring implementation.
 As the landing page of the project states, it's like SLF4J but for metrics.
@@ -15,7 +15,7 @@ First of all, we said that Micrometer is a facade.
 What it really means is that using the library, you as a developer can use a single interface (or facade) to ship your metrics into a wide variety of monitoring systems.
 You may think that it's not that big of a deal.
 Well, it is.
-There are a ton of solutions for monitoring applications, and each of them has different approaches to satisfy your monitoring needs.
+There are a plenty of solutions for monitoring applications, and each of them has different approaches to satisfy your monitoring needs.
 These differences can be as subtle as the naming conventions they use, or some might differ even on the fundamental approach on how they collect their data.
 Here, at AutSoft we use Prometheus which polls the applications for new data, as opposed to e.g. DataDog which relies on a push model.
 Micrometer can bridge all of these differences for you so you can use a unified interface for all of these solutions.
@@ -26,7 +26,7 @@ Once Prometheus collects these metrics, you can see the aggregate number of requ
 
 ## Micrometer and Spring
 
-With the new version of Spring Boot Actuator, the Spring team decided to use Micrometer to report the framework's built-n metrics using Micrometer.
+With the new version of Spring Boot Actuator, the Spring team decided to use Micrometer to report the framework's built-in metrics using Micrometer.
 (Which is not a surprise since they were the ones developing the library in the first place...)
 
 To examine these metrics in an existing Spring Boot 2 application you don't really need to work a lot.
@@ -196,10 +196,10 @@ Again, if you restart your application and check the `http://localhost:8080/actu
 ### Defining a Timer
 
 A Timer serves two functions, it measures the time of certain events (typically method executions) and counts these events at the same time.
-If you've ever monitored a web application, most likely to wanted to check the response times of your server.
+If you've ever maintained or developed a web application, most likely you wanted to check the response times of your server.
 This use case is the most typical one to Timers.
 
-Timers have a ton of useful functionality but let's just focus on measuring the execution time of a given method.
+Timers have lots of useful functionality but let's just focus on measuring the execution time of a given method.
 In Spring, one can use `micrometer-core`'s `@Timed` annotation after configuring the `TimedAspect` Aspect provided by Micrometer.
 Put the following lines of code in your Application class (or in any `@Configuration` class): 
 ```java
