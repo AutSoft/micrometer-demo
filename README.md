@@ -191,7 +191,13 @@ public BeerService(MeterRegistry meterRegistry) {
 }
 ```
 
-Again, if you restart your application and check the `http://localhost:8080/actuator/prometheus` URL in your browser, you should find the `beer.ordersInQueue` metric.
+Again, if you restart your application and check the `http://localhost:8080/actuator/prometheus` URL in your browser, you should find the `beer.ordersInQueue` metric:
+
+```
+# HELP beer_ordersInQueue Number of unserved orders
+# TYPE beer_ordersInQueue gauge
+beer_ordersInQueue 9.0
+```
 
 ### Defining a Timer
 
