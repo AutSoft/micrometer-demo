@@ -1,11 +1,11 @@
 # Defining custom metrics in a Spring Boot application using Micrometer
 
 A few months ago my friend and colleague, Attila wrote a [great post](https://blog.autsoft.hu/monitoring-microservices/) on the monitoring of Spring microservices using Micrometer, Prometheus, Grafana and Kubernetes.
-Now, it is time to have a closer look at Micrometer and its' integration into Spring Boot and the way one should export custom metrics using these technologies.
+Now, it is time to have a closer look at Micrometer and its integration into Spring Boot and the way one should export custom metrics using these technologies.
 
 Spring Boot 2.0 brought loads of new features into our favorite Java framework.
 One of these new features, amongst many, is the integration of Micrometer into Spring Boot Actuator.
-Micrometer is a dimensional metrics and monitoring facade to help developers integrate their application metrics to various monitoring systems while keeping the appliaction indepedendent from the actual monitoring implementation.
+Micrometer is a dimensional metrics and monitoring facade to help developers integrate their application metrics to various monitoring systems while keeping the application independent from the actual monitoring implementation.
 As the landing page of the project states, it's like SLF4J but for metrics.
 
 ## Micrometer 101
